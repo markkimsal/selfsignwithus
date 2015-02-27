@@ -1,0 +1,13 @@
+{
+  "name": "selfsign-template",
+  "version": "0.1.0",
+  "homepage": "",
+  "authors": [
+    "Mark Kimsal <metrofindings@gmail.com>",
+    "Colin Campbell"
+  ],
+  "license": "private",
+  "private": true,
+  "dependencies": {
+  }
+}
