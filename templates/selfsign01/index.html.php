@@ -79,27 +79,27 @@
                 </div>
                 <div class=form-group">
                     <label>State/Province
-                    <input type="text" class="form-control" id="csr-state" placeholder="...">
+                    <input type="text" class="form-control" id="csr-state" name="csr-state" placeholder="...">
                     </label>
                 </div>
                 <div class=form-group">
                     <label>City/Locality
-                    <input type="text" class="form-control" id="csr-city" placeholder="...">
+                    <input type="text" class="form-control" id="csr-city" name="csr-city" placeholder="...">
                     </label>
                 </div>
                 <div class=form-group">
                     <label>Organization
-                    <input type="text" class="form-control" id="csr-org" placeholder="Company Name">
+                    <input type="text" class="form-control" id="csr-org" name="csr-org" placeholder="Company Name">
                     </label>
                 </div>
                 <div class=form-group">
                     <label>Department / Unit
-                    <input type="text" class="form-control" id="csr-unit" placeholder="[optional]">
+                    <input type="text" class="form-control" id="csr-unit" name="csr-unit" placeholder="[optional]">
                     </label>
                 </div>
                 <div class=form-group">
                     <label>Domain or Common Name
-                    <input type="text" class="form-control" id="csr-dom" placeholder="example.com">
+                    <input type="text" class="form-control" id="csr-dom" name="csr-dom" placeholder="example.com">
                     </label>
                 </div>
         </div>

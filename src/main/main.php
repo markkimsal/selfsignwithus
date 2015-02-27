@@ -19,7 +19,20 @@ class Main_Main
 		$subject = '';
 		$listDn  = array();
 		if ($country  = $request->cleanString('csr-country')) {
-			$listDn['C'] = trim(escapeshellarg($country));
+			$listDn['C'] = trim($country);
+		}
+
+		if ($state  = $request->cleanString('csr-state')) {
+			$listDn['ST'] = trim($state);
+		}
+
+		if ($org  = $request->cleanString('csr-org')) {
+			$listDn['O'] = trim($org);
+		}
+
+		//TODO check for http:// and throw an error or strip (the // messed up the DN)
+		if ($domain  = $request->cleanString('csr-dom')) {
+			$listDn['CN'] = trim($domain);
 		}
 
 		foreach ($listDn as $_k => $_v) {
@@ -27,7 +40,7 @@ class Main_Main
 		}
 
 		if (strlen($subject)) {
-			$subject = ' -subj '.$subject;
+			$subject = ' -subj '.escapeshellarg($subject);
 		}
 
 		//openssl req -new -nodes -out test.csr -keyout test.key -batch -subj /C=US/ST=MI/O=selfsignwith.us/CN=www.selfsignwith.us -newkey 'rsa':'2048'
