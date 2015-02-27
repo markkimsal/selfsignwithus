@@ -11,3 +11,4 @@ var/cache/*
 /templates/*/css
 node_modules/
 npm-debug.log
+altax
