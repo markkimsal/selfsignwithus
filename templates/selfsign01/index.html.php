@@ -117,7 +117,7 @@
             <form>
 
                 <h3>3. Your SSL Cert</h3>
-                <button type="submit" class="btn btn-default">generate</button>
+                <button type="submit" class="btn btn-primary btn-lg">generate</button>
             </form>
         </div>
         <div class="col-sm-6">

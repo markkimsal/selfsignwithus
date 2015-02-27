@@ -9,5 +9,6 @@
   "license": "private",
   "private": true,
   "dependencies": {
+    "Bootflat": "~2.0.4"
   }
 }
