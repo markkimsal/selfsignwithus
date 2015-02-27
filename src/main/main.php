@@ -15,13 +15,33 @@ class Main_Main
 			$bits = '2048';
 		}
 
-        $keygen = 'openssl gen' . escapeshellarg($type) . ' -out test.key ' . escapeshellarg($bits); 
+		//Subject DN
+		$subject = '';
+		$listDn  = array();
+		if ($country  = $request->cleanString('csr-country')) {
+			$listDn['C'] = trim(escapeshellarg($country));
+		}
+
+		foreach ($listDn as $_k => $_v) {
+			$subject .= '/'.$_k.'='. $_v;
+		}
+
+		if (strlen($subject)) {
+			$subject = ' -subj '.$subject;
+		}
+
+		//openssl req -new -nodes -out test.csr -keyout test.key -batch -subj /C=US/ST=MI/O=selfsignwith.us/CN=www.selfsignwith.us -newkey 'rsa':'2048'
+
+        $keygen  = 'openssl req -new -nodes -out test.csr -keyout test.key';
+		$keygen .= $subject;
+		$keygen .= ' -newkey ' . escapeshellarg($type) . ':' . escapeshellarg($bits);
 		$output = array();
 		$retvar = 0;
-		exec($keygen, $output, $retvar);
+		//exec($keygen, $output, $retvar);
 
 		$response->retvar = $retvar;
 
         $response->addTo('keygen', $keygen);    
+//        $response->addTo('keygen', $output);
     }
 }

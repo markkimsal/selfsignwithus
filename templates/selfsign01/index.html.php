@@ -74,7 +74,7 @@
                 <h3>2. Certificate Sign Request (CSR)</h3>
                 <div class=form-group">
                     <label>Country
-                    <input type="text" class="form-control" id="csr-country" placeholder="UK, CA, US, ...">
+                    <input type="text" class="form-control" id="csr-country" name="csr-country" placeholder="UK, CA, US, ...">
                     </label>
                 </div>
                 <div class=form-group">
