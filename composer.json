@@ -1,0 +1,40 @@
+{
+    "name": "metroproject",
+    "version": "0.1.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mark Kimsal",
+            "email": "metrofindings@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/metrophp/metrodb.git"
+        },
+		{
+            "type": "vcs",
+            "url": "https://github.com/metrophp/metrodi.git"
+        },
+		{
+            "type": "vcs",
+            "url": "https://github.com/metrophp/metrou.git"
+        },
+		{
+            "type": "vcs",
+            "url": "https://github.com/metrophp/metrofw.git"
+        }
+    ],
+    "require": {
+        "rain/raintpl": ">=3.0.0",
+        "metrodb": ">=1.3.0",
+        "metrofw": ">=0.9",
+        "metrou":  ">=0.9",
+        "metrodi": ">=3.0.0-beta5"
+    },
+    "config": {
+        "vendor-dir": "local"
+    },
+	"minimum-stability": "dev"
+}
