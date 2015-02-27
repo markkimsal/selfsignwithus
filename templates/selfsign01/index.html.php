@@ -34,7 +34,9 @@
 <header>
     <div class="container">
         <div class="row">
-            Self Sign with Us
+            <div class="page-header"> 
+                <h1>Self Sign with Us</h1>
+            </div>
         </div>
     </div>
 </header>
