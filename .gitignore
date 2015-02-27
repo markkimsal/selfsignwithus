@@ -12,3 +12,4 @@ var/cache/*
 node_modules/
 npm-debug.log
 altax
+*.tar.gz

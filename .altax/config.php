@@ -53,6 +53,7 @@ Task::register("$stage:deploy", function($task) use($stage, $rev) {
 			$process->runLocally("scp $tarName $nodeHost:$tarTarget");
 			$process->run("mkdir -p /var/www/vhosts/$vhost/httpdocs/");
 			$process->run("tar -zxf $tarTarget -C /var/www/vhosts/$vhost/httpdocs/");
+            $process->run("rm $tarTarget");
 //			$process->run("chmod go+rx /var/www/vhosts/$vhost/httpdocs/");
 //			$process->run("chmod go+r /var/www/vhosts/$vhost/httpdocs/* -R");
 
