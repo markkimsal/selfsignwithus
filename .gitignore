@@ -8,3 +8,5 @@ vendor/
 local/
 var/cache/*
 /templates/*/components
+node_modules/
+npm-debug.log
