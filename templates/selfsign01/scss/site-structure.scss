@@ -1,4 +1,19 @@
 header {
   background-color: #8CC152;
   min-height:130px;
+  height:150px;
+}
+
+header img {
+  margin-top:20px;
+  float:left;
+}
+
+header .tagline {
+  font-size:300%;
+  font-family: 'Droid Sans', 'Open Sans', sans-serif;
+  color:white;
+  float:left;
+  margin-top:50px;
+  margin-left:20px;
 }

@@ -10,6 +10,7 @@
 
     <title>selfsignwithus</title>
 
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo m_turl();?>components/Bootflat/css/bootstrap.min.css" rel="stylesheet">
 <!--
@@ -34,9 +35,8 @@
 <header>
     <div class="container">
         <div class="row">
-            <div class="page-header"> 
-                <h1>Self Sign with Us</h1>
-            </div>
+			<img src="<?php echo m_turl();?>img/sswu-logo.png"/>
+            <div class="tagline">Self Sign with Us</div>
         </div>
     </div>
 </header>
