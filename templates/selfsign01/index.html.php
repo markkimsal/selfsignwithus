@@ -43,37 +43,34 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <form>
+            <form  method="get" action="<?= m_appurl('main/main/keygen') ?>">
                 <h3>1. Public Private Key Gen</h3>
                 <div class=form-group">
                     <label>Strength
-                    <select class="form-control" id="keygen-bits">
+                    <select class="form-control" id="keygen-bits" name="keygen-bits">
                     <option value="1024">1024</option>
                     <option value="2048" selected="selected">2048</option>
                     </select>
                     </label>
 				    <label>Type
-                    <select class="form-control" id="keygen-type">
+                    <select class="form-control" id="keygen-type" name="keygen-type">
                     <option value="dsa">dsa</option>
                     <option value="rsa" selected="selected">rsa</option>
                     </select>
                     </label>
-
                 </div>
-
-            </form>
         </div>
         <div class="col-sm-6">
             <div class="panel">
-                keygen output goes here
+                <?php if (isset($response->keygen)): ?>
+                    <?php echo $response->keygen[0] ?>
+                <?php endif; ?>
             </div>
         </div>
 
     </div>
     <div class="row">
         <div class="col-sm-6">
-            <form>
-
                 <h3>2. Certificate Sign Request (CSR)</h3>
                 <div class=form-group">
                     <label>Country
@@ -105,7 +102,6 @@
                     <input type="text" class="form-control" id="csr-dom" placeholder="example.com">
                     </label>
                 </div>
-            </form>
         </div>
         <div class="col-sm-6">
             <div class="panel">
@@ -116,8 +112,6 @@
 
     <div class="row">
         <div class="col-sm-6">
-            <form>
-
                 <h3>3. Your SSL Cert</h3>
                 <button type="submit" class="btn btn-primary btn-lg">generate</button>
             </form>
