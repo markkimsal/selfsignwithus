@@ -26,7 +26,7 @@ if (is_file(__DIR__ . '/vendor/autoload.php')) require_once __DIR__ . '/vendor/a
 //
 //   });
 //
-$rev = '0.0.1';
+$rev = '0.1.0';
 
 $stage = 'production';
         Server::node("igotaprinter", array(
