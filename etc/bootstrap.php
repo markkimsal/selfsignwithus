@@ -1,5 +1,16 @@
 <?php
-//_set('env', 'dev');
+$env = '';
+if (array_key_exists('APP_ENV', $_SERVER)) {
+	$env = $_SERVER['APP_ENV'];
+}
+if ($env == '') {
+	$env = getenv('APP_ENV');
+}
+if ($env == '') {
+	$env = 'local';
+}
+_set('env', $env);
+
 _iCanHandle('analyze',   'metrofw/analyzer.php');
 _iCanHandle('analyze',   'metrofw/router.php', 3);
 _iCanHandle('resources', 'metrofw/output.php');
@@ -41,6 +52,16 @@ _didef('session',        'metrou/sessionsimple.php');
 
 //_didef('taxcalc',  'utils/taxcaclculatorv1.php');
 //_didef('taxcalc',  '\FER\Utils\Taxcalculator');
+
+if ($env == 'production') {
+	_set('memcache', '74.207.225.177:11211');
+} else {
+	$listMemcache = @include('etc/memcache.local.php');
+	foreach ($listMemcache as $hostandport) {
+		_set('memcache', $hostandport);
+	}
+}
+
 
 _set('template_basedir', 'templates/');
 _set('template_baseuri', 'templates/');
