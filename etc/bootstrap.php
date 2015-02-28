@@ -7,7 +7,7 @@ _iCanHandle('output',    'metrofw/output.php');
 //will be removed if output.php doesn't think we need HTML output
 _iCanHandle('output',    'metrofw/template.php', 3);
 //_iCanHandle('template.main',    'template/rain.php::templateMain', 3);
-_iCanHandle('template.main',    'template/rain.php::template', 3);
+//_iCanHandle('template.main',    'template/rain.php::template', 3);
 
 _iCanHandle('exception', 'metrofw/exdump.php::onException');
 _iCanHandle('hangup',    'metrofw/output.php');
