@@ -24,10 +24,10 @@ class Main_Main
 
 		if ($this->tempSave( implode("\n", $output) , 'pkey', $session->sessionId )) {
 			$response->message = 'saved';
-			$response->addTo('main',  'saved');
+			$response->addTo('main',  'You can download your root key file <a href="'.m_appurl('main/keygen/dl').'">here</a>.  This file download will expire in 10 minutes.');
 		} else {
 			$response->statusCode = 500;
-			$response->addTo('main',  'failed');
+			$response->addTo('main',  'Sorry, an internal error failed to generate your root key.  Please, try again.');
 		}
 	}
 
@@ -37,7 +37,7 @@ class Main_Main
 		list($ip, $port) = explode(':', _get('memcache'));
 		$m->addServer($ip, $port);
 		//expire after 10 min
-		return $m->add( implode('.', [$prefix, $key]), $string, MEMCACHE_COMPRESSED, 60*10);
+		return $m->set( implode('.', [$prefix, $key]), $string, MEMCACHE_COMPRESSED, 60*10);
 	}
 
     public function csrAction($request, $response)
