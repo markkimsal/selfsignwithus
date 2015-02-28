@@ -82,8 +82,13 @@
                 </div>
         </div>
         <div class="col-sm-6">
-            <div class="panel outputpanel">
-                CSR output goes here
+            <div class="panel outputpanel panel-default">
+				<div class="panel-heading">
+					<h5 class="panel-title">CSR Output Goes Here</h5>
+				</div>
+				<div class="panel-body">
+					<button type="submit" class="btn btn-disabled" disabled>generate</button>
+				</div>
             </div>
         </div>
     </div>
@@ -91,11 +96,16 @@
     <div class="row">
         <div class="col-sm-6">
                 <h3>3. Your SSL Cert</h3>
-                <button type="submit" class="btn btn-primary btn-lg">generate</button>
         </div>
         <div class="col-sm-6">
-            <div class="panel outputpanel">
-                Cert output goes here
+
+         <div class="panel outputpanel panel-default">
+				<div class="panel-heading">
+					<h5 class="panel-title">Cert Output Goes Here</h5>
+				</div>
+				<div class="panel-body">
+					<button type="submit" class="btn btn-disabled" disabled>generate</button>
+				</div>
             </div>
         </div>
     </div>
