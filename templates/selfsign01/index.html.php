@@ -13,12 +13,11 @@
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo m_turl();?>components/Bootflat/css/bootstrap.min.css" rel="stylesheet">
-<!--
     <link href="<?php echo m_turl();?>components/Bootflat/css/site.min.css" rel="stylesheet">
+<!--
 -->
 
     <!-- Custom CSS -->
-    <link href="<?php echo m_turl();?>css/sswu.css" rel="stylesheet">
     <link href="<?php echo m_turl();?>css/sswu-site.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -41,10 +40,10 @@
     </div>
 </header>
 <div class="container">
+    <form  method="POST" action="<?= m_appurl('main/main/keygen') ?>">
     <div class="row">
         <div class="col-sm-6">
-            <form  method="get" action="<?= m_appurl('main/main/keygen') ?>">
-                <h3>1. Public Private Key Gen</h3>
+                <h3>1. Private Key Gen</h3>
                 <div class=form-group">
                     <label>Strength
                     <select class="form-control" id="keygen-bits" name="keygen-bits">
@@ -61,14 +60,34 @@
                 </div>
         </div>
         <div class="col-sm-6">
-            <div class="panel">
-                <?php if (isset($response->keygen)): ?>
-                    <?php echo $response->keygen[0] ?>
-                <?php endif; ?>
+            <div class="panel outputpanel panel-default">
+				<div class="panel-heading">
+					<h5 class="panel-title">Start by generating a new private key</h5>
+				</div>
+				<div class="panel-body">
+					<button type="submit" class="btn btn-primary">generate</button>
+				</div>
             </div>
+
+<!--
+            <div class="panel outputpanel panel-success">
+				<div class="panel-heading"><h5 class="panel-title">Success</h5>
+				</div>
+				<div class="panel-body">
+					<div class="btn-group">
+						<button type="button" class="btn btn-primary">Download Private Key</button>
+					</div>
+					<?php if (isset($response->keygen)): ?>
+						<?php echo $response->keygen[0] ?>
+					<?php endif; ?>
+				</div>
+            </div>
+-->
         </div>
 
     </div>
+    </form>
+    <form  method="POST" action="<?= m_appurl('main/main/keygen') ?>">
     <div class="row">
         <div class="col-sm-6">
                 <h3>2. Certificate Sign Request (CSR)</h3>
@@ -104,7 +123,7 @@
                 </div>
         </div>
         <div class="col-sm-6">
-            <div class="panel">
+            <div class="panel outputpanel">
                 CSR output goes here
             </div>
         </div>
@@ -114,14 +133,14 @@
         <div class="col-sm-6">
                 <h3>3. Your SSL Cert</h3>
                 <button type="submit" class="btn btn-primary btn-lg">generate</button>
-            </form>
         </div>
         <div class="col-sm-6">
-            <div class="panel">
+            <div class="panel outputpanel">
                 Cert output goes here
             </div>
         </div>
     </div>
+    </form>
 </div>
 
 </body>
