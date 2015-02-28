@@ -1,7 +1,7 @@
     <form  method="POST" action="<?= m_appurl('main/main/keygen') ?>">
     <div class="row">
         <div class="col-sm-6">
-                <h3>1. Private Key Gen</h3>
+                <h3>1. Private Root Key</h3>
                 <div class=form-group">
                     <label>Strength
                     <select class="form-control" id="keygen-bits" name="keygen-bits">
@@ -60,10 +60,10 @@
 
     </div>
     </form>
-    <form  method="POST" action="<?= m_appurl('main/main/keygen') ?>">
+    <form  method="POST" action="<?= m_appurl('main/csr') ?>">
     <div class="row">
         <div class="col-sm-6">
-                <h3>2. Certificate Sign Request (CSR)</h3>
+                <h3>2. Signed Root Certificate</h3>
                 <div class=form-group">
                     <label>Country
                     <input type="text" class="form-control" id="csr-country" name="csr-country" placeholder="UK, CA, US, ...">
@@ -74,52 +74,59 @@
                     <input type="text" class="form-control" id="csr-state" name="csr-state" placeholder="...">
                     </label>
                 </div>
+<!--
                 <div class=form-group">
                     <label>City/Locality
                     <input type="text" class="form-control" id="csr-city" name="csr-city" placeholder="...">
                     </label>
                 </div>
+-->
                 <div class=form-group">
                     <label>Organization
                     <input type="text" class="form-control" id="csr-org" name="csr-org" placeholder="Company Name">
                     </label>
                 </div>
+<!--
                 <div class=form-group">
                     <label>Department / Unit
                     <input type="text" class="form-control" id="csr-unit" name="csr-unit" placeholder="[optional]">
                     </label>
                 </div>
+-->
+        </div>
+        <div class="col-sm-6">
+            <div class="panel outputpanel panel-default">
+            <div class="panel-heading">
+                <h5 class="panel-title">Sign Your Root Certificate</h5>
+            </div>
+            <div class="panel-body">
+                <button type="submit" class="btn btn-primary">generate</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    </form>
+
+    <form  method="POST" action="<?= m_appurl('main/cert') ?>">
+    <div class="row">
+        <div class="col-sm-6">
+                <h3>3. Your SSL Cert</h3>
                 <div class=form-group">
                     <label>Domain or Common Name
                     <input type="text" class="form-control" id="csr-dom" name="csr-dom" placeholder="example.com">
                     </label>
                 </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="panel outputpanel panel-default">
-				<div class="panel-heading">
-					<h5 class="panel-title">CSR Output Goes Here</h5>
-				</div>
-				<div class="panel-body">
-					<button type="submit" class="btn btn-disabled" disabled>generate</button>
-				</div>
-            </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col-sm-6">
-                <h3>3. Your SSL Cert</h3>
         </div>
         <div class="col-sm-6">
 
          <div class="panel outputpanel panel-default">
-				<div class="panel-heading">
-					<h5 class="panel-title">Cert Output Goes Here</h5>
-				</div>
-				<div class="panel-body">
-					<button type="submit" class="btn btn-disabled" disabled>generate</button>
-				</div>
+         <div class="panel-heading">
+            <h5 class="panel-title">Cert Output Goes Here</h5>
+         </div>
+         <div class="panel-body">
+            <button type="submit" class="btn btn-disabled" disabled>generate</button>
+         </div>
             </div>
         </div>
     </div>
