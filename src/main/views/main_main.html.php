@@ -16,6 +16,21 @@
                     <option value="rsa" selected="selected">rsa</option>
                     </select>
                     </label>
+				    <label>Expires after
+                    <select class="form-control" id="keygen-expire" name="keygen-expire">
+                    <option value="1d">1 day</option>
+                    <option value="2d">2 days</option>
+                    <option value="7d">7 days</option>
+                    <option value="30d">30 days</option>
+                    <option value="1y">1 year</option>
+                    <option value="2y" selected="selected">2 year</option>
+                    <option value="3y">3 year</option>
+                    <option value="4y">4 year</option>
+                    <option value="5y">5 year</option>
+                    <option value="7y">7 year</option>
+                    <option value="10y">10 year</option>
+                    </select>
+                    </label>
                 </div>
         </div>
         <div class="col-sm-6">
