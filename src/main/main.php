@@ -22,7 +22,7 @@ class Main_Main
 		$retvar = 0;
 		exec( escapeshellcmd($keygen), $output, $retvar);
 
-		if ($this->tempSave( implode("\n", $output) , 'pkey', $session->sessionId )) {
+		if ($this->tempSave( implode("\n", $output) , 'rootkey', $session->sessionId )) {
 			$response->message = 'saved';
 			$response->addTo('main',  'You can download your root key file <a href="'.m_appurl('main/keygen/dl').'">here</a>.  This file download will expire in 10 minutes.');
 		} else {
@@ -81,7 +81,7 @@ class Main_Main
 
 		$response->retvar = $retvar;
 
-        $response->addTo('keygen', $keygen);    
+        $response->addTo('keygen', $keygen);
 //        $response->addTo('keygen', $output);
     }
 }

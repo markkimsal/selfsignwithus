@@ -10,7 +10,7 @@ class Main_Keygen
 	}
 
 	public function output($response, $session) {
-		$key    = 'pkey';
+		$key    = 'rootkey';
 		$prefix = $session->sessionId;
 		$m      = new Memcache(); 
 
