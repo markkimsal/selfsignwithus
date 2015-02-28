@@ -1,12 +1,12 @@
 header {
   background-color: #325d88;
-  min-height:130px;
-  height:150px;
+  min-height:150px;
 }
 
 header img {
   margin-top:20px;
   float:left;
+  margin-left:10px;
 }
 
 header .tagline {
@@ -16,4 +16,36 @@ header .tagline {
   float:left;
   margin-top:50px;
   margin-left:20px;
+}
+
+.outputpanel {
+  margin-top:30px;
+}
+
+
+@media only screen and (max-device-width: 500px) {
+
+header img {
+  margin-top:45px;
+  float:left;
+  width:50px;
+}
+
+}
+
+@media only screen and (max-device-width: 390px) {
+
+header {
+ min-height:65px;
+}
+header .tagline {
+  margin-top:10px;
+  font-size:225%;
+}
+
+header img {
+  margin-top:20px;
+  width:20px;
+}
+
 }
