@@ -40,7 +40,9 @@
     </div>
 </header>
 
+<div class="container">
 <?php Metrofw_Template::parseSection('main'); ?>
+</div>
 
 </body>
 </html>

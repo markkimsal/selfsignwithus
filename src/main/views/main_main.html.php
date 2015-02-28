@@ -1,4 +1,3 @@
-<div class="container">
     <form  method="POST" action="<?= m_appurl('main/main/keygen') ?>">
     <div class="row">
         <div class="col-sm-6">
@@ -125,6 +124,3 @@
         </div>
     </div>
     </form>
-</div>
-
-
