@@ -2,7 +2,7 @@
 
 class Main_Main 
 {
-    public function keygenAction($request, $response)
+    public function keygenAction($request, $response, $session)
     {
         $bits = $request->cleanString('keygen-bits');
         $type = $request->cleanString('keygen-type');
@@ -22,9 +22,20 @@ class Main_Main
 		$retvar = 0;
 		exec( escapeshellcmd($keygen), $output, $retvar);
 
-		$response->retvar = $retvar;
+		if ($this->tempSave( implode("\n", $output) , 'pkey', $session->sessionId )) {
+			$response->message = 'saved';
+		} else {
+			$response->status = 500;
+		}
+	}
 
-        $response->addTo('keygen', $keygen);
+	public function tempSave($string, $key, $prefix)
+	{
+		$m = new Memcache();
+		list($ip, $port) = explode(':', _get('memcache'));
+		$m->addServer($ip, $port);
+		//expire after 10 min
+		return $m->add( implode('.', [$prefix, $key]), $string, MEMCACHE_COMPRESSED, 60*10);
 	}
 
     public function csrAction($request, $response)

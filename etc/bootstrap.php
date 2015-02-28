@@ -34,8 +34,9 @@ _didef('dataitem', 'metrodb/dataitem.php');
 #_iCanHandle('authenticate.failure', 'metrou/login.php::authFailure');
 
 //things
-#_didef('user',           'metrou/user.php');
+_didef('user',           'metrou/user.php');
 #_didef('session',        'metrou/sessiondb.php');
+_didef('session',        'metrou/sessionsimple.php');
 //end metrou
 
 //_didef('taxcalc',  'utils/taxcaclculatorv1.php');
