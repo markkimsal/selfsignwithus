@@ -15,6 +15,20 @@ class Main_Main
 			$bits = '2048';
 		}
 
+		//openssl genpkey -out foo_rsa.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
+		//openssl genpkey -out foo_rsa.key -algorithm DSA -pkeyopt rsa_paramgen_bits:2048
+		$keygen  = 'openssl genpkey -algorithm '.strtoupper($type).' -pkeyopt rsa_keygen_bits:'.$bits;
+		$output = array();
+		$retvar = 0;
+		exec( escapeshellcmd($keygen), $output, $retvar);
+
+		$response->retvar = $retvar;
+
+        $response->addTo('keygen', $keygen);
+	}
+
+    public function csrAction($request, $response)
+    {
 		//Subject DN
 		$subject = '';
 		$listDn  = array();
