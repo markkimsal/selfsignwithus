@@ -24,8 +24,10 @@ class Main_Main
 
 		if ($this->tempSave( implode("\n", $output) , 'pkey', $session->sessionId )) {
 			$response->message = 'saved';
+			$response->addTo('main',  'saved');
 		} else {
-			$response->status = 500;
+			$response->statusCode = 500;
+			$response->addTo('main',  'failed');
 		}
 	}
 
