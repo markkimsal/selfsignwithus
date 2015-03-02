@@ -35,8 +35,14 @@
 <header>
     <div class="container">
         <div class="row">
+			<div class="col-sm-6">
 			<img src="<?php echo m_turl();?>img/sswu-logo.png"/>
             <div class="tagline">Self Sign with Us</div>
+			</div>
+			<div class="col-sm-6 well well-ad">
+			<h4>Need an SSD VPS?</h4>
+			<h4><a style="color:#DDF" href="https://www.linode.com/?r=aa9059b45056457c90231e3e50e3e7e222c8b0f9">Try Linode.com</a></h4>
+			</div>
         </div>
     </div>
 </header>
