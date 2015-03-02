@@ -57,6 +57,7 @@ Task::register("$stage:deploy", function($task) use($stage, $rev) {
 			//server proc needs ability to write to var (should be grouped to www-data)
 			$process->run("chgrp www-data /var/www/vhosts/$vhost/httpdocs/var/");
 			$process->run("chmod go+rw /var/www/vhosts/$vhost/httpdocs/var/");
+			$process->run("chmod go+rw /var/www/vhosts/$vhost/httpdocs/var/openssl*");
 
 			//server proc needs ability to write to execute bin/* (should be grouped to www-data)
 			$process->run("chgrp www-data /var/www/vhosts/$vhost/httpdocs/bin/");
