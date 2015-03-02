@@ -64,6 +64,7 @@
     <div class="row">
         <div class="col-sm-6">
                 <h3>2. Signed Root Certificate</h3>
+<!--
                 <div class=form-group">
                     <label>Country
                     <input type="text" class="form-control" id="csr-country" name="csr-country" placeholder="UK, CA, US, ...">
@@ -74,6 +75,7 @@
                     <input type="text" class="form-control" id="csr-state" name="csr-state" placeholder="...">
                     </label>
                 </div>
+-->
 <!--
                 <div class=form-group">
                     <label>City/Locality
@@ -81,6 +83,11 @@
                     </label>
                 </div>
 -->
+                <div class=form-group">
+                    <label>Your Name
+                    <input type="text" class="form-control" id="csr-cn" name="csr-cn" placeholder="Issuer Name" value="Self Sign With Us CA">
+                    </label>
+                </div>
                 <div class=form-group">
                     <label>Organization
                     <input type="text" class="form-control" id="csr-org" name="csr-org" placeholder="Company Name" value="Self Sign With Us">
@@ -112,20 +119,24 @@
         <div class="col-sm-6">
                 <h3>3. Your SSL Cert</h3>
                 <div class=form-group">
-                    <label>Domain or Common Name
-                    <input type="text" class="form-control" id="csr-dom" name="csr-dom" placeholder="example.com">
+                    <label>Organization Name
+                    <input type="text" class="form-control" id="cert-org" name="cert-org" placeholder="Example Inc">
                     </label>
                 </div>
-
+                <div class=form-group">
+                    <label>Domain or Common Name
+                    <input type="text" class="form-control" id="cert-dom" name="cert-dom" placeholder="example.com">
+                    </label>
+                </div>
         </div>
         <div class="col-sm-6">
 
          <div class="panel outputpanel panel-default">
          <div class="panel-heading">
-            <h5 class="panel-title">Cert Output Goes Here</h5>
+            <h5 class="panel-title">Generate and Sign a new SSL Cert</h5>
          </div>
          <div class="panel-body">
-            <button type="submit" class="btn btn-disabled" disabled>generate</button>
+            <button type="submit" class="btn btn-primary">generate</button>
          </div>
             </div>
         </div>

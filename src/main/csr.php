@@ -27,7 +27,7 @@ class Main_Csr
 		}
 
 		//TODO check for http:// and throw an error or strip (the // messed up the DN)
-		if ($domain  = $request->cleanString('csr-dom')) {
+		if ($domain  = $request->cleanString('csr-cn')) {
 			$listDn['CN'] = trim($domain);
 		}
 
