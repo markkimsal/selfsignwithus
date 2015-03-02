@@ -45,6 +45,8 @@ class Main_Csr
 		if ($this->saveToCache($rootcert, 'rootcert', $prefix)) {
 			$response->message = 'saved';
 			$response->addTo('main',  'You can download your root cert file <a href="'.m_appurl('main/csr/dl').'">here</a>.  This file download will expire in 10 minutes.');
+			$response->addUserMessage('You can download your root cert file <a href="'.m_appurl('main/csr/dl').'">here</a>.  This file download will expire in 10 minutes.', 'info');
+			$response->redir = m_appurl();
 		} else {
 			$response->statusCode = 500;
 			$response->addTo('main',  'Sorry, an internal error failed to generate your root cert.  Please, try again.');
@@ -54,7 +56,7 @@ class Main_Csr
 	/**
 	 * Load a file from memcache and stream to user
 	 */
-    public function dlAction() {
+	public function dlAction() {
 		_iCanOwn('output', 'main/csr.php');
 	}
 

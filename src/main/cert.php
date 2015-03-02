@@ -66,6 +66,9 @@ class Main_Cert
 		if ($this->saveToCache($devicecert, 'devicecert', $prefix)) {
 			$response->message = 'saved';
 			$response->addTo('main',  'You can download your SSL cert file <a href="'.m_appurl('main/cert/dl').'">here</a>.  This file download will expire in 10 minutes.');
+			$response->addUserMessage('You can download your SSL cert file <a href="'.m_appurl('main/cert/dl').'">here</a>.  This file download will expire in 10 minutes.', 'info');
+			$response->addUserMessage('You can generate more SSL certs with the same root certificate now.', 'info');
+			$response->redir = m_appurl();
 		} else {
 			$response->statusCode = 500;
 			$response->addTo('main',  'Sorry, an internal error failed to generate your SSL cert.  Please, try again.');
@@ -155,7 +158,7 @@ class Main_Cert
 	/**
 	 * Load a file from memcache and stream to user
 	 */
-    public function dlAction() {
+	public function dlAction() {
 		_iCanOwn('output', 'main/cert.php');
 	}
 
