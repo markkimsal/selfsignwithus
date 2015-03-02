@@ -28,9 +28,8 @@ _iCanHandle('hangup',    'metrofw/output.php');
 _didef('request',        'metrofw/request.php');
 _didef('response',       'metrofw/response.php');
 _didef('router',         'metrofw/router.php');
-_didef('foobar',         (object)array());
 
-_didef('loggerService',  (object)array());
+//_didef('loggerService',  (object)array());
 
 //metrodb
 _didef('dataitem', 'metrodb/dataitem.php');
@@ -87,6 +86,3 @@ _set('route_rules',
 _set('route_rules',
 	array_merge(array('/:appName/:modName/:actName/:arg'=>array(  )),
 	_get('route_rules')));
-
-// paste at bottom etc/bootsrap.php
-_iCanHandle('hangup',  'example/helloworld.php');
