@@ -40,6 +40,8 @@
     </div>
 </header>
 
+<?php Metrofw_Template::parseSection('sparkmsg'); ?>
+
 <div class="container">
 <?php Metrofw_Template::parseSection('main'); ?>
 </div>

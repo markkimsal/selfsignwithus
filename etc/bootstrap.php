@@ -20,6 +20,8 @@ _iCanHandle('output',    'metrofw/template.php', 3);
 //_iCanHandle('template.main',    'template/rain.php::templateMain', 3);
 //_iCanHandle('template.main',    'template/rain.php::template', 3);
 
+_iCanHandle('template.sparkmsg',    'main/usermsg.php::template', 3);
+
 _iCanHandle('exception', 'metrofw/exdump.php::onException');
 _iCanHandle('hangup',    'metrofw/output.php');
 

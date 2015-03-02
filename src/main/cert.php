@@ -43,7 +43,14 @@ class Main_Cert
 		foreach ($listDn as $_k => $_v) {
 			$subject .= '/'.$_k.'='. $_v;
 		}
+
 		//TODO:  no subject submitted? don't bother, can't create cert
+		if ($subject == '') {
+			//user didn't submit any form values, no sensible defaults
+			$response->addUserMessage('You didn\'t fill out anything for your SSL cert.', 'warn');
+			$response->redir = m_appurl('');
+			return;
+		}
 
 /*
 		if (strlen($subject)) {
