@@ -53,13 +53,18 @@ Task::register("$stage:deploy", function($task) use($stage, $rev) {
 			$process->runLocally("scp $tarName $nodeHost:$tarTarget");
 			$process->run("mkdir -p /var/www/vhosts/$vhost/httpdocs/");
 			$process->run("tar -zxf $tarTarget -C /var/www/vhosts/$vhost/httpdocs/");
+
+			//server proc needs ability to write to var (should be grouped to www-data)
+			$process->run("chgrp www-data /var/www/vhosts/$vhost/httpdocs/var/");
+			$process->run("chmod go+rw /var/www/vhosts/$vhost/httpdocs/var/");
+
+			//server proc needs ability to write to execute bin/* (should be grouped to www-data)
+			$process->run("chgrp www-data /var/www/vhosts/$vhost/httpdocs/bin/");
+			$process->run("chmod g+x /var/www/vhosts/$vhost/httpdocs/bin/*");
     
             // clean up
             $process->run("rm $tarTarget");
             $process->runLocally("rm $tarName");
-
-//			$process->run("chmod go+rx /var/www/vhosts/$vhost/httpdocs/");
-//			$process->run("chmod go+r /var/www/vhosts/$vhost/httpdocs/* -R");
 
 			//nginx
 /*
