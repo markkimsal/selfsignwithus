@@ -31,6 +31,7 @@
 
 <body>
 
+<div id="wrap">
 <header>
     <div class="container">
         <div class="row">
@@ -45,6 +46,11 @@
 <div class="container">
 <?php Metrofw_Template::parseSection('main'); ?>
 </div>
+</div>
 
+<div class="container footersswu">
+	<footer class="copyright clearfix"><p><b>Self Sign With Us</b>&nbsp;&nbsp;never stores your keys or certs to disk. Everything is streamed from memcache to FIFO pipes and expires after 10 min.</p>
+	</footer>
+</div>
 </body>
 </html>

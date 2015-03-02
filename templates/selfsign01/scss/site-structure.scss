@@ -49,3 +49,19 @@ header img {
 }
 
 }
+
+html, body {
+height:100%;
+}
+#wrap {
+  min-height:100%;
+  padding-bottom:65px;
+}
+
+.footersswu {
+ font-size:90%;
+ position: relative;
+ margin-top: -30px; /* negative value of footer height */
+ height: 28px;
+ clear:both;
+}
