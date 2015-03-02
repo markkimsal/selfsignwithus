@@ -63,6 +63,19 @@ class Main_Cert
 		} catch (Exception $e) {
 			$this->releaseLock();
 		}
+		if ($devicecert === -1 ) {
+			$response->addTo('main',  'Unable to load root key.  Perhaps it expired.');
+			$response->addUserMessage('Unable to load root key.  Perhaps it expired.', 'danger');
+			$response->redir = m_appurl();
+			return;
+		}
+		if ($devicecert === -2 ) {
+			$response->addTo('main',  'Unable to load root certificate.  Perhaps it expired.');
+			$response->addUserMessage('Unable to load root certificate.  Perhaps it expired.', 'danger');
+			$response->redir = m_appurl();
+			return;
+		}
+
 		if ($this->saveToCache($devicecert, 'devicecert', $prefix)) {
 			$response->message = 'saved';
 			$response->addTo('main',  'You can download your SSL cert file <a href="'.m_appurl('main/cert/dl').'">here</a>.  This file download will expire in 10 minutes.');
@@ -89,11 +102,10 @@ class Main_Cert
 	 */
 	public function signDeviceCert($csr, $rootkey, $rootcert) {
 		if (!strlen($rootkey)) {
-			die('no root key');
-			return '';
+			return -1;
 		}
 		if (!strlen($rootcert)) {
-			die('no root cert');
+			return -2;
 			return '';
 		}
 		if (!strlen($csr)) {
