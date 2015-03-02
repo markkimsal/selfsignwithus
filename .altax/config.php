@@ -48,7 +48,7 @@ Task::register("$stage:deploy", function($task) use($stage, $rev) {
 			$tarName = "crm_metro-".$rev.".tar.gz";
 			$tarTarget = "/tmp/".$tarName;
 
-			$process->runLocally("tar -czf $tarName --exclude=\"artifacts\" --exclude=\".altax/*\" --exclude=\".git\" --exclude=\"node_modules\" --exclude=\"templates/selfsign01/components/\" --exclude=\".gitignore\" src/ etc/ templates/ var/ index.php composer.json composer.lock local");
+			$process->runLocally("tar -czf $tarName --exclude=\"artifacts\" --exclude=\".altax/*\" --exclude=\".git\" --exclude=\"node_modules\" --exclude=\"templates/selfsign01/components/\" --exclude=\".gitignore\" src/ etc/ templates/ var/ index.php composer.json composer.lock bin local");
 
 			$process->runLocally("scp $tarName $nodeHost:$tarTarget");
 			$process->run("mkdir -p /var/www/vhosts/$vhost/httpdocs/");
