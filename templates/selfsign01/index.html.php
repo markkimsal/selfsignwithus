@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>selfsignwithus</title>
+    <title>Self Signed SSL Certificates | Self Sign With Us</title>
 
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
     <!-- Bootstrap Core CSS -->
