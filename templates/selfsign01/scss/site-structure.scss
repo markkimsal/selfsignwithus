@@ -22,18 +22,38 @@ header .tagline {
   margin-top:30px;
 }
 
-
-@media only screen and (max-device-width: 500px) {
+@media (max-width: 995px) {
 
 header img {
   margin-top:45px;
   float:left;
-  width:50px;
+  width:60px;
+}
+
+header .tagline {
+  font-size:200%;
+}
+
+header .well-aff h4 {
+font-size:90%;
 }
 
 }
 
-@media only screen and (max-device-width: 390px) {
+
+@media (max-width: 768px) {
+
+header img {
+  margin-top:45px;
+  float:left;
+  width:60px;
+}
+header .well-aff h4{
+font-size:100%;
+}
+}
+
+@media (max-device-width: 390px) {
 
 header {
  min-height:65px;
@@ -47,7 +67,9 @@ header img {
   margin-top:20px;
   width:20px;
 }
-
+.well-aff {
+font-size:75%;
+}
 }
 
 html, body {
