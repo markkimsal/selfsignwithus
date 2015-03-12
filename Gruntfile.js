@@ -7,7 +7,8 @@ grunt.loadNpmTasks('grunt-sass');
 grunt.initConfig({
     sass: {
         options: {
-            sourceMap: true
+            sourceMap: true,
+			outputStyle: 'compressed'
         },
         dist: {
             files: {
