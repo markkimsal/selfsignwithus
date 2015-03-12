@@ -14,9 +14,6 @@
     <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo m_turl();?>components/Bootflat/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo m_turl();?>components/Bootflat/css/site.min.css" rel="stylesheet">
-<!--
--->
 
     <!-- Custom CSS -->
     <link href="<?php echo m_turl();?>css/sswu-site.css" rel="stylesheet">
