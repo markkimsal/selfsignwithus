@@ -45,6 +45,13 @@
 			</div>
         </div>
     </div>
+        <div class="row">
+			<div class="col-xs-12 nav-header">
+			    <div class="container">
+					<ul><li><a href="https://wiki.asterisk.org/wiki/display/AST/SIP+TLS+Transport">SSL and Asterisk</a></li><li><a href="https://dev.mysql.com/doc/refman/5.0/en/replication-solutions-ssl.html">SSL and MySQL</a></li><li><a href="http://nginx.org/en/docs/http/configuring_https_servers.html">SSL and Nginx</a></li></ul>
+				</div>
+        	</div>
+        </div>
 </header>
 
 <?php Metrofw_Template::parseSection('sparkmsg'); ?>

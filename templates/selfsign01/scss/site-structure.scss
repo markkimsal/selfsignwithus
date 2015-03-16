@@ -106,3 +106,21 @@ color:#DDF
 header {
 margin-bottom:0.75em;
 }
+
+.nav-header {
+ color:#EEE;
+ background-color:#1E3B59;
+}
+.nav-header ul {
+ margin:0;
+ padding:0;
+ list-style:none;
+}
+.nav-header ul li {
+ display:inline-block;
+ text-align:center;
+ width: 33%;
+}
+.nav-header ul li a {
+ color:#EEE;
+}
