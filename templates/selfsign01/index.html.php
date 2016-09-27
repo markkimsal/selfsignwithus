@@ -11,7 +11,7 @@
 
     <title>Self Signed SSL Certificates | Self Sign With Us</title>
 
-    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
     <!-- Bootstrap Core CSS -->
     <link href="<?php echo m_turl();?>components/Bootflat/css/bootstrap.min.css" rel="stylesheet">
 
