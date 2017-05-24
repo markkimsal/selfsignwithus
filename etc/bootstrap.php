@@ -55,7 +55,7 @@ _didef('session',        'metrou/sessionsimple.php');
 //_didef('taxcalc',  '\FER\Utils\Taxcalculator');
 
 if ($env == 'production') {
-	_set('memcache', '74.207.225.177:11211');
+	_set('memcache', '127.0.0.1:11211');
 } else {
 	$listMemcache = @include('etc/memcache.local.php');
 	foreach ($listMemcache as $hostandport) {
