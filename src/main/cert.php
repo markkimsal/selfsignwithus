@@ -113,29 +113,31 @@ class Main_Cert
 			return '';
 		}
 
-		$this->createFifos();
-		$this->blockForLock();
+		$deviceCert = openssl_csr_sign(
+			$csr,
+			$rootcert,
+			$rootkey,
+			730
+		);
+		$output = '';
+		openssl_x509_export(
+			$deviceCert,
+			$output
+		);
+		return $output;
+// 		$this->createFifos();
+// 		$this->blockForLock();
 
-		$output = array();
-		$command  = 'openssl x509 -req -CA var/openssl.cert -CAkey var/openssl.key -CAcreateserial -days 730 ';
 
-/*
-		echo('echo '.escapeshellarg($rootcert) .' > var/openssl.cert 2>&1 &');
-//		echo('echo '.escapeshellarg($rootcert) .' > var/openssl.cert 2>&1 &');
-		exec('echo '.escapeshellarg($rootcert) .' > var/openssl.cert 2>&1 &');
-//		echo('echo '.escapeshellarg($rootkey) .' > var/openssl.key 2>&1 &');
-		exec('echo '.escapeshellarg($rootkey) .' > var/openssl.key 2>&1 &');
+// 		$output = array();
+// 		$command  = 'openssl x509 -req -CA var/openssl.cert -CAkey var/openssl.key -CAcreateserial -days 730 ';
 
-//		echo( 'echo '.escapeshellarg($csr).' | '.$command);
-		exec( 'echo '.escapeshellarg($csr).' | '.$command, $output);
-*/
-
-		$command = './bin/sign_device_cert.php';
-		$retval  = 0;
-		exec( 'echo '.escapeshellarg($csr."\n".$rootkey."\n".$rootcert."\n").' | '.$command, $output, $retval);
-		//echo( 'echo '.escapeshellarg($csr."\n".$rootkey."\n".$rootcert).' | '.$command);
-		$this->releaseLock();
-		return implode("\n", $output);
+// 		$command = './bin/sign_device_cert.php';
+// 		$retval  = 0;
+// 		exec( 'echo '.escapeshellarg($csr."\n".$rootkey."\n".$rootcert."\n").' | '.$command, $output, $retval);
+// 		//echo( 'echo '.escapeshellarg($csr."\n".$rootkey."\n".$rootcert).' | '.$command);
+// 		$this->releaseLock();
+// 		return implode("\n", $output);
 	}
 
 	public function createFifos() {
