@@ -1,0 +1,43 @@
+---
+version: '3.4'
+
+services:
+    memcached:
+        image: 'memcached'
+
+    webapp:
+        image: 'markkimsal/php-platform:7.4.29-tools'
+        command: /platform/start-container
+        environment:
+            SKIP_MIGRATIONS: 1
+            SKIP_CONFIG_CACHE: 1
+            ENABLE_ARTISAN_SCHEDULE: 0
+            WWWUID: '${WWWUID:-33}'
+            WWWGID: '${WWWGID:-33}'
+        ports:
+            - 8081:8080
+        # required for linux compatibility with macosx
+        extra_hosts:
+            host.docker.internal: host-gateway
+        volumes:
+            - '.:/app'
+            - './config/docker/container-nginx.vhost.conf:/etc/nginx/conf.d/container-vhost.conf'
+            - './config/docker/max_execution_time.ini/:/usr/local/etc/php/conf.d/max_execution_time.ini'
+            - './config/docker/xdebug.ini/:/usr/local/etc/php/conf.d/xdebug.ini'
+
+    mysql:
+        image: 'mysql:8.0.31'
+        environment:
+            MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_DATABASE: '${DB_DATABASE}'
+            MYSQL_USER: '${DB_USERNAME}'
+            MYSQL_PASSWORD: '${DB_PASSWORD}'
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+        volumes:
+            - 'selfsignmysql:/var/lib/mysql'
+        healthcheck:
+           test: ["CMD", "mysqladmin", "-u", "root", "-psecret", "ping"]
+
+volumes:
+    selfsignmysql:
+        driver: local
