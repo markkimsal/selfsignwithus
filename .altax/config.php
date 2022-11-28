@@ -31,8 +31,8 @@ $rev = '0.4.1';
 $stage = 'production';
         Server::node("igotaprinter", array(
             'roles'=>array("$stage.web", "$stage.db"),
-            "host" => "igotaprinter.org",
-            "username" => "deployer",
+            "host" => "selfsignwith.us",
+            "username" => "root",
             "port" => 22,
         ));
 
@@ -50,7 +50,8 @@ Task::register("$stage:deploy", function($task) use($stage, $rev) {
 
 			$process->runLocally("tar -czf $tarName --exclude=\"artifacts\" --exclude=\".altax/*\" --exclude=\".git\" --exclude=\"node_modules\" --exclude=\"templates/selfsign01/components/\" --exclude=\".gitignore\" src/ etc/ templates/ var/ index.php composer.json composer.lock bin local");
 
-			$process->runLocally("scp $tarName $nodeHost:$tarTarget");
+//			$process->runLocally("scp $tarName $nodeHost:$tarTarget");
+			$process->put($tarName, $tarTarget);
 			$process->run("mkdir -p /var/www/vhosts/$vhost/httpdocs/");
 			$process->run("tar -zxf $tarTarget -C /var/www/vhosts/$vhost/httpdocs/");
 
@@ -78,8 +79,8 @@ Task::register("$stage:deploy", function($task) use($stage, $rev) {
 			$process->run("sed -ie \"s/REVISION/$rev/g\" $sitesAvailable/fireworks.$rev");
 			$process->run("sed -ie \"s/APP_STAGE/$stage/g\" $sitesAvailable/fireworks.$rev");
 			$process->run("ln -sf $sitesAvailable/fireworks.$rev $sitesEnabled/fireworks.$rev");
-			$process->run("nginx -s reload");
 */
+			$process->run("nginx -s reload");
 	}, array("$stage.web"));
 
 });
