@@ -1,8 +1,9 @@
 <?php
 
+use Memcached;
+
 class Main_Csr
 {
-
 	/**
 	 * Generate CSR and ICA with saved pkey
 	 */
@@ -63,10 +64,8 @@ class Main_Csr
 	public function output($response, $session) {
 		$key    = 'rootcert';
 		$prefix = $session->sessionId;
-		$m      = new Memcache();
+		$m = _make('memcached');
 
-		list($ip, $port) = explode(':', _get('memcache'));
-		$m->addServer($ip, $port);
 		$x = $m->get( implode('.', [$prefix, $key]));
 		if (!$x) {
 			$response->statusCode = 500;
@@ -80,11 +79,12 @@ class Main_Csr
 
 	public function saveToCache($string, $key, $prefix)
 	{
-		$m = new Memcache();
+		$m = new \Memcached();
 		list($ip, $port) = explode(':', _get('memcache'));
+		$m->setOption(\Memcached::OPT_COMPRESSION, true);
 		$m->addServer($ip, $port);
 		//expire after 10 min
-		return $m->set( implode('.', [$prefix, $key]), $string, MEMCACHE_COMPRESSED, 60*10);
+		return $m->set( implode('.', [$prefix, $key]), $string, 60*10);
 	}
 
 
@@ -102,10 +102,7 @@ class Main_Csr
      * @return mixed  value or FALSE on error
      */
     public function loadFromCache($key, $prefix) {
-		$m      = new Memcache();
-
-		list($ip, $port) = explode(':', _get('memcache'));
-		$m->addServer($ip, $port);
+		$m = _make('memcached');
 		return $m->get( implode('.', [$prefix, $key]));
     }
 }

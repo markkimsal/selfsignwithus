@@ -12,7 +12,7 @@ class Main_Keygen
 	public function output($response, $session) {
 		$key    = 'rootkey';
 		$prefix = $session->sessionId;
-		$m      = new Memcache(); 
+		$m      = new Memcached();
 
 		list($ip, $port) = explode(':', _get('memcache'));
 		$m->addServer($ip, $port);

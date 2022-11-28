@@ -38,11 +38,12 @@ class Main_Main
 
 	public function tempSave($string, $key, $prefix)
 	{
-		$m = new Memcache();
+		$m = new Memcached();
 		list($ip, $port) = explode(':', _get('memcache'));
+		$m->setOption(Memcached::OPT_COMPRESSION, true);
 		$m->addServer($ip, $port);
 		//expire after 10 min
-		return $m->set( implode('.', [$prefix, $key]), $string, MEMCACHE_COMPRESSED, 60*10);
+		return $m->set( implode('.', [$prefix, $key]), $string, 60*10);
 	}
 
     public function csrAction($request, $response)

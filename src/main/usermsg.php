@@ -4,7 +4,7 @@ Class Main_Usermsg {
 
 
 	public function template($response) {
-		$msg = $response->get('sparkmsg');
+		$msg = $response->get('sparkmsg') ?? [];
 		if (count($msg)) {
 			echo '
 <div class="container">

@@ -1,4 +1,5 @@
 <?php
+
 $env = '';
 if (array_key_exists('APP_ENV', $_SERVER)) {
 	$env = $_SERVER['APP_ENV'];
@@ -62,6 +63,13 @@ if ($env == 'production') {
 		_set('memcache', $hostandport);
 	}
 }
+_didef('memcached', function() {
+    $m      = new Memcached();
+    $m->setOption(Memcached::OPT_COMPRESSION, true);
+    list($ip, $port) = explode(':', _get('memcache'));
+    $m->addServer($ip, $port);
+    return $m;
+});
 
 
 _set('template_basedir', 'templates/');
